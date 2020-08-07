@@ -1,0 +1,17 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/Cts.Bian.AccountService/Service Descriptors/SavingsAccount_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/savings-account/v2/T1593777166874Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.AccountService/Service Descriptors/SavingsAccount_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/savings-account/v2/T1593778119584Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.AccountService/Service Descriptors/CurrentAccount_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/current-account/v2/T1593785628494Converted/JsonSchema"
+    }
+]}

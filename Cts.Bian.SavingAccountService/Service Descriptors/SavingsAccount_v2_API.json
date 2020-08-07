@@ -1,0 +1,742 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "cts.bian.account.savings",
+    "description": "This service domain orchestrates a consumer savings account"
+  },
+  "host": "EC2AMAZ-0N2LKVL:443",
+  "basePath": "/savings-account/v2",
+  "securityDefinitions": {
+    "OAuth2": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://example.com/oauth/authorize",
+      "tokenUrl": "https://example.com/oauth/token",
+      "scopes": {
+        "read": "Grants read access",
+        "write": "Grants write access",
+        "admin": "Grants read and write access to administrative information"
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/savings-account/savings-account-fulfillment-arrangement/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Retrieve CR Ids",
+        "operationId": "RetrieveSavingsAccountReferenceIds",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "collection-filter",
+            "in": "query",
+            "description": "Filter to refine the result set. ex- SavingsAccount Instance Status='active' or 'customerReference == CR123'",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "CR7264641",
+                "CR7264642"
+              ]
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/behavior-qualifiers/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Retrieve BQ names",
+        "operationId": "RetrieveSavingsAccountBehaviorQualifiers",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "Interest",
+                "ServiceFees",
+                "DepositsandWithdrawals"
+              ]
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Retrieve Behavior Qualifier Reference Ids",
+        "operationId": "RetrieveSavingsAccountBehaviorQualifierReferenceIds",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Savings Account Fulfillment Arrangement Instance Reference",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "behavior-qualifier",
+            "in": "path",
+            "description": "Behavior Qualifier Name. ex- Interest or ex- depositsandwithdrawals",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "collection-filter",
+            "in": "query",
+            "description": "Filter to refine the result set. ex- Interest Instance applicableInterestRate> '7%' or ex- amount> $5000",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "example": [
+                "InterestID1",
+                "InterestID2",
+                "DepositandWithdrawalsID1",
+                "DepositandWithdrawalsID2"
+              ]
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Invoke a reporting action to obtain a Savings Account Fulfillment Arrangement instance related report",
+        "description": "Retrieve information about a savings account - either standard canned reports or selected instance attribute values",
+        "operationId": "retrieveSavingsAccount",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Savings Account Fulfillment Arrangement Instance Reference",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved Savings Account Fulfillment Arrangement Instance",
+            "schema": {
+              "$ref": "#/definitions/savingsAccountFulfillmentArrangementInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Invoke a reporting action to obtain a Interest instance related report.",
+        "description": "Retrieve details of an interest transaction applied internally to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information.",
+        "operationId": "retrieveSavingsAccountFulfillmentArrangementInterest",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Savings Account Fulfillment Arrangement Instance Reference",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "Interest Instance Reference",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved Interest Instance Record",
+            "schema": {
+              "$ref": "#/definitions/savingsAccountFulfillmentArrangementInterestInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/depositsandwithdrawals/{bq-reference-id}/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Invoke a reporting action to obtain a DepositsAndWithdrawals instance related report.",
+        "description": "Retrieve details about a deposit or withdrawal transaction .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information.",
+        "operationId": "retrieveSavingsAccountFulfillmentArrangementDepositsAndWithdrawals",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Savings Account Fulfillment Arrangement Instance Reference",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "DepositsAndWithdrawals Instance Reference",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved DepositsAndWithdrawals Instance Record",
+            "schema": {
+              "$ref": "#/definitions/savingsAccountFulfillmentArrangementDepositsAndWithdrawalsInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/": {
+      "get": {
+        "tags": [
+          "retrieve"
+        ],
+        "summary": "Invoke a reporting action to obtain a ServiceFees instance related report.",
+        "description": "Retrieve information about a service fee applied to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information.",
+        "operationId": "retrieveSavingsAccountFulfillmentArrangementServiceFees",
+        "security": [
+          {
+            "OAuth2": [
+              "read"
+            ]
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Savings Account Fulfillment Arrangement Instance Reference",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "ServiceFees Instance Reference",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved ServiceFees Instance Record",
+            "schema": {
+              "$ref": "#/definitions/savingsAccountFulfillmentArrangementServiceFeesInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "savingsAccountFulfillmentArrangementInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "accountCurrency": {
+          "type": "string",
+          "example": "USD",
+          "description": "`status: Registered` iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/codesets/_bUhmRdp-Ed-ak6NoX_4Aeg_-1745414039) general-info: 'Code allocated to a currency, by a maintenance agency, under an international identification scheme as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\". Valid currency codes are registered with the ISO 4217 Maintenance Agency, and consist of three contiguous letters.' "
+        },
+        "accountLimit": {
+          "type": "string",
+          "example": "50000",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount "
+        },
+        "accountLimitType": {
+          "type": "string",
+          "example": "netting",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "accountStatus": {
+          "type": "string",
+          "example": "active",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text general-info: 'e.g. pre-opened, active, dormant, pending for closing, blocked' "
+        },
+        "accountType": {
+          "type": "string",
+          "example": "current",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "allowedAccess": {
+          "type": "string",
+          "example": "admin",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text general-info: 'allowed roles and actions against the product' "
+        },
+        "bankBranchLocationReference": {
+          "type": "string",
+          "example": "BLR7364646",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'for booking purposes' "
+        },
+        "customerCommentary": {
+          "type": "string",
+          "example": "commentary",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "customerReference": {
+          "type": "string",
+          "example": "CR6789",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier "
+        },
+        "date": {
+          "type": "string",
+          "example": "2018-09-26T05:56:05.007",
+          "description": "`status: Registered`, iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/datatypes/_YW1tKtp-Ed-ak6NoX_4Aeg_-1624336183) general-info: A particular point in the progression of time defined by a mandatory date and a mandatory time component, expressed in either UTC time format (YYYY-MM-DDThh:mm:ss.sssZ), local time with UTC offset format (YYYY-MM-DDThh:mm:ss.sss+/-hh:mm), or local time format (YYYY-MM-DDThh:mm:ss.sss). These representations are defined in \"XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004\" which is aligned with ISO 8601. Note on the time format: 1) beginning / end of calendar day 00:00:00 = the beginning of a calendar day 24:00:00 = the end of a calendar day 2) fractions of second in time format Decimal fractions of seconds may be included. In this case, the involved parties shall agree on the maximum number of digits that are allowed. "
+        },
+        "dateType": {
+          "type": "string",
+          "example": "open",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "involvedPartyObligationEntitlement": {
+          "type": "string",
+          "example": "partyEntitilement",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "involvedPartyReference": {
+          "type": "string",
+          "example": "cosigner",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "option": {
+          "type": "string",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text general-info: 'settings for the realization of the selected product option' "
+        },
+        "optionType": {
+          "type": "string",
+          "example": "Email Statements",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text "
+        },
+        "partyReference": {
+          "type": "string",
+          "example": "PR73644",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier "
+        },
+        "productInstanceReference": {
+          "type": "string",
+          "example": "PIR7374646",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'savings account number' "
+        },
+        "savingsAccountNumber": {
+          "type": "string",
+          "description": "An identifier used internationally by financial institutions to uniquely identify the account of a customer at a financial institution, as described in the latest edition of the international standard ISO 13616. \"Banking and related financial services - International Bank Account Number (IBAN)\"."
+        },
+        "taxReference": {
+          "type": "string",
+          "example": "taxid00001",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'Tax-Id associated with the customer/account' "
+        }
+      }
+    },
+    "savingsAccountFulfillmentArrangementInterestInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "accuredInterestAmount": {
+          "type": "string",
+          "example": "20",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount "
+        },
+        "applicableInterestRate": {
+          "type": "string",
+          "description": "Rate expressed as a percentage, ie, in hundredths, eg, 0.7 is 7/10 of a percent, and 7.0 is 7%."
+        },
+        "interestRateTransactionReference": {
+          "type": "string",
+          "example": "IRTR736464",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier "
+        },
+        "productInstanceReference": {
+          "type": "string",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'savings account number' "
+        },
+        "rateApplicationSchedule": {
+          "type": "string",
+          "description": "iso-link : [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/codesets/_ar_mp9p-Ed-ak6NoX_4Aeg_1946817553) general-info: Specifies the regularity of an event. ",
+          "enum": [
+            "YEAR",
+            "MNTH",
+            "QURT",
+            "MIAN",
+            "WEEK",
+            "DAIL",
+            "ADHO",
+            "INDA"
+          ]
+        },
+        "rateRateConfiguration": {
+          "type": "object",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Binary general-info: 'service domain level structure' "
+        }
+      }
+    },
+    "savingsAccountFulfillmentArrangementDepositsAndWithdrawalsInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "depositType": {
+          "type": "string",
+          "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The type of deposit transaction that can be applied to the account (e.g. customer deposit, internal credit)\n"
+        },
+        "withdrawalType": {
+          "type": "string",
+          "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The type of withdrawal transaction that can be applied to the account (e.g. customer withdrawal, internal service charge, disbursement)\n"
+        },
+        "accountLimit": {
+          "type": "string",
+          "example": "200000",
+          "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The handling options if a withdrawal results in a breach of an account limit\n"
+        },
+        "accountLimitType": {
+          "type": "string",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text general-info: 'e.g. transaction credit/debit, netting, position' "
+        },
+        "productInstanceReference": {
+          "type": "string",
+          "example": "PIR7374646",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'savings account number' "
+        },
+        "depositTransaction": {
+		  "type": "object",
+          "properties": {
+            "depositTransactionSourceReference": {
+              "type": "string",
+              "example": "DTR7376464",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier\n general-info: Identifies the source of the deposit\n"
+            },
+            "depositTransactionDepositType": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The type of deposit made with the transaction\n"
+            },
+            "depositTransactionDescription": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: Any necessary details describing the purpose or reference properties of the deposit\n"
+            },
+            "depositTransactionAmount": {
+              "type": "string",
+              "example": "250",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount\n general-info: The deposited amount\n"
+            },
+            "depositTransactionCurrency": {
+              "type": "string",
+              "example": "USD",
+              "description": "`status: Registered` iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/codesets/_bUhmRdp-Ed-ak6NoX_4Aeg_-1745414039) general-info: 'Code allocated to a currency, by a maintenance agency, under an international identification scheme as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\". Valid currency codes are registered with the ISO 4217 Maintenance Agency, and consist of three contiguous letters.' "
+            },
+            "depositTransactionDate": {
+              "type": "string",
+              "example": "2018-09-26T05:56:05.007",
+              "description": "`status: Registered`, iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/datatypes/_YW1tKtp-Ed-ak6NoX_4Aeg_-1624336183) general-info: The date and time the deposit was initiated. A particular point in the progression of time defined by a mandatory date and a mandatory time component, expressed in either UTC time format (YYYY-MM-DDThh:mm:ss.sssZ), local time with UTC offset format (YYYY-MM-DDThh:mm:ss.sss+/-hh:mm), or local time format (YYYY-MM-DDThh:mm:ss.sss). These representations are defined in \"XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004\" which is aligned with ISO 8601. Note on the time format: 1) beginning / end of calendar day 00:00:00 = the beginning of a calendar day 24:00:00 = the end of a calendar day 2) fractions of second in time format Decimal fractions of seconds may be included. In this case, the involved parties shall agree on the maximum number of digits that are allowed."
+            }
+          }
+        },
+        "withdrawalTransaction": {
+		  "type": "object",
+          "properties": {
+            "withdrawalTransactionSourceReference": {
+              "type": "string",
+              "example": "WTR7376464",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier\n general-info: Identifies the target for the withdrawal\n"
+            },
+            "withdrawalTransactionWithdrawalType": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The type of withdrawal made with the transaction\n"
+            },
+            "withdrawalTransactionDescription": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: Any necessary details describing the purpose or reference properties of the withdrawal\n"
+            },
+            "withdrawalTransactionAmount": {
+              "type": "string",
+              "example": "250",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount\n general-info: The withdrawn amount\n"
+            },
+            "withdrawalTransactionCurrency": {
+              "type": "string",
+              "example": "250",
+              "description": "`status: Registered` iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/codesets/_bUhmRdp-Ed-ak6NoX_4Aeg_-1745414039) general-info: 'Code allocated to a currency, by a maintenance agency, under an international identification scheme as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\". Valid currency codes are registered with the ISO 4217 Maintenance Agency, and consist of three contiguous letters.' "
+            },
+            "withdrawalTransactionDate": {
+              "type": "string",
+              "example": "2018-09-26T05:56:05.007",
+              "description": "`status: Registered`, iso-link: [click_here](https://www.iso20022.org/standardsrepository/public/wqt/Description/mx/dico/datatypes/_YW1tKtp-Ed-ak6NoX_4Aeg_-1624336183) general-info: The date and time the withdrawal was initiated. A particular point in the progression of time defined by a mandatory date and a mandatory time component, expressed in either UTC time format (YYYY-MM-DDThh:mm:ss.sssZ), local time with UTC offset format (YYYY-MM-DDThh:mm:ss.sss+/-hh:mm), or local time format (YYYY-MM-DDThh:mm:ss.sss). These representations are defined in \"XML Schema Part 2: Datatypes Second Edition - W3C Recommendation 28 October 2004\" which is aligned with ISO 8601. Note on the time format: 1) beginning / end of calendar day 00:00:00 = the beginning of a calendar day 24:00:00 = the end of a calendar day 2) fractions of second in time format Decimal fractions of seconds may be included. In this case, the involved parties shall agree on the maximum number of digits that are allowed."
+            }
+          }
+        }
+      }
+    },
+    "savingsAccountFulfillmentArrangementServiceFeesInstanceRecord": {
+	  "type": "object",
+      "properties": {
+        "feeConfigurationProfile": {
+		  "type": "object",
+          "properties": {
+            "feeType": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The fee or penalty type applied\n"
+            },
+            "feeDefinition": {
+              "type": "string",
+              "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: Definition of the fee or penalty including when and how to apply\n"
+            }
+          }
+        },
+        "productInstanceReference": {
+          "type": "string",
+          "example": "PIR7374646",
+          "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier general-info: 'savings account number' "
+        },
+        "feeApplicationRecord": {
+		  "type": "object",
+          "properties": {
+            "feeTransaction": {
+			  "type": "object",
+              "properties": {
+                "transactionReference": {
+                  "type": "string",
+                  "example": "FTR736454",
+                  "description": "`status: Not Mapped` core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::ISO20022andUNCEFACT::Identifier "
+                },
+                "transactionDescription": {
+                  "type": "string",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: General description of the fee or penalty transaction\n"
+                },
+                "transactionFeeType": {
+                  "type": "string",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The fee or penalty type applied\n"
+                },
+                "transactionFeeCharge": {
+                  "type": "string",
+                  "example": "USD 250",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount\n general-info: The derived fee or penalty amount applied\n"
+                }
+              }
+            },
+            "feeProjectionsandCommitments": {
+			  "type": "object",
+              "properties": {
+                "projectedTransactionDescription": {
+                  "type": "string",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: General description of the projected fee or penalty\n"
+                },
+                "projectedTransactionFeeType": {
+                  "type": "string",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The fee or penalty type\n"
+                },
+                "projectedTransactionFeeCharge": {
+                  "type": "string",
+                  "example": "USD 250",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount\n general-info: The anticipated fee or penalty amount\n"
+                }
+              }
+            },
+            "feeAccrualAmount": {
+			  "type": "object",
+              "properties": {
+                "accrualFeeType": {
+                  "type": "string",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Text\n general-info: The fee or penalty type being tracked\n"
+                },
+                "accrualFeeCharge": {
+                  "type": "string",
+                  "example": "USD 250",
+                  "description": "`status: Not Mapped`\n core-data-type-reference: BIAN::DataTypesLibrary::CoreDataTypes::UNCEFACT::Amount\n general-info: The accrued amount of fees and penalties\n"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

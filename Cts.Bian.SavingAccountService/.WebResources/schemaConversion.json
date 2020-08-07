@@ -1,0 +1,22 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/Cts.Bian.SavingAccountService/Service Descriptors/SavingsAccount_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/savings-account/v2/T1593777166874Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.SavingAccountService/Service Descriptors/SavingsAccount_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/savings-account/v2/T1593778119584Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.SavingAccountService/Service Descriptors/Current_Account.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/T1594093360307Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.SavingAccountService/Service Descriptors/Credit_CardService.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/T1594093440821Converted/JsonSchema"
+    }
+]}

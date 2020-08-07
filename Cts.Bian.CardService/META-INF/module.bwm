@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_raOPoL2xEeq8dI6Q883UGQ" targetNamespace="http://tns.tibco.com/bw/composite/Cts.Bian.CardService" name="Cts.Bian.CardService" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_GflNMr3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement">
+    <sca:interface.wsdl xmi:id="_GflNNr3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_GflNN73PEeq8dI6Q883UGQ" name="RestService" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_Gfu-ML3PEeq8dI6Q883UGQ" operationName="get" nickname="RetrieveCreditChargeCardReferenceIds" httpMethod="GET" notes="" responseStyle="array">
+        <parameters xmi:id="_GgB5JL3PEeq8dI6Q883UGQ">
+          <parameterMapping xmi:id="_GgB5Jb3PEeq8dI6Q883UGQ" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- CreditChargeCard Instance Status='active'"/>
+        </parameters>
+        <responseStatus xmi:id="_GgB5IL3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_GgB5Ib3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_GgB5Ir3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_GgB5I73PEeq8dI6Q883UGQ"/>
+      <advancedConfig xmi:id="_GflNOL3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_Gfu-Mb3PEeq8dI6Q883UGQ" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="_IYugIr3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement1" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement1">
+    <sca:interface.wsdl xmi:id="_IYugJr3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement1)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_IYugJ73PEeq8dI6Q883UGQ" name="RestService1" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_IYugKb3PEeq8dI6Q883UGQ" operationName="get" nickname="retrieveCreditChargeCard" httpMethod="GET" notes="details about a card account" responseStyle="element">
+        <responseStatus xmi:id="_IZBbEL3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_IZBbEb3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_IZBbEr3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_IZBbE73PEeq8dI6Q883UGQ">
+        <parameterMapping xmi:id="_IZBbFL3PEeq8dI6Q883UGQ" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Credit Charge Card Fulfillment Arrangement Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_IYugKL3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_IYugKr3PEeq8dI6Q883UGQ" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_K34DIr3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-behavior-qualifiers" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement-behavior-qualifiers">
+    <sca:interface.wsdl xmi:id="_K34DJr3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-behavior-qualifiers)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_K4BNEL3PEeq8dI6Q883UGQ" name="RestService2" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/behavior-qualifiers/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_K4BNEr3PEeq8dI6Q883UGQ" operationName="get" nickname="RetrieveCreditChargeCardBehaviorQualifiers" httpMethod="GET" notes="" responseStyle="array">
+        <responseStatus xmi:id="_K4UvEL3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_K4UvEb3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_K4UvEr3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_K4UvE73PEeq8dI6Q883UGQ"/>
+      <advancedConfig xmi:id="_K4BNEb3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_K4BNE73PEeq8dI6Q883UGQ" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_LzL00r3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement2" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement2">
+    <sca:interface.wsdl xmi:id="_LzL01r3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement2)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_LzU-wL3PEeq8dI6Q883UGQ" name="RestService3" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_LzU-wr3PEeq8dI6Q883UGQ" operationName="get" nickname="RetrieveCreditChargeCardBehaviorQualifierReferenceIds" httpMethod="GET" notes="" responseStyle="array">
+        <parameters xmi:id="_Lzn5tr3PEeq8dI6Q883UGQ">
+          <parameterMapping xmi:id="_Lzn5t73PEeq8dI6Q883UGQ" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- CreditChargeCard Instance Status='active'"/>
+        </parameters>
+        <responseStatus xmi:id="_Lzn5sL3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_Lzn5sb3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_Lzn5sr3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Lzn5s73PEeq8dI6Q883UGQ">
+        <parameterMapping xmi:id="_Lzn5tL3PEeq8dI6Q883UGQ" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Credit Charge Card Fulfilment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_Lzn5tb3PEeq8dI6Q883UGQ" parameterName="behavior-qualifier" parameterType="Path" dataType="string" required="true" description="Behavior Qualifier Name. ex- Interest or ex- CardTransactions"/>
+      </parameters>
+      <advancedConfig xmi:id="_LzU-wb3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_LzU-w73PEeq8dI6Q883UGQ" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_M88SMr3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-interest" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement-interest">
+    <sca:interface.wsdl xmi:id="_M88SNr3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-interest)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_M9GDML3PEeq8dI6Q883UGQ" name="RestService4" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_M9GDMr3PEeq8dI6Q883UGQ" operationName="get" nickname="retrieveCreditChargeCardFulfilmentArrangementInterest" httpMethod="GET" notes="details about interest accrued to an account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information" responseStyle="element">
+        <responseStatus xmi:id="_M9Y-IL3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_M9Y-Ib3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_M9Y-Ir3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_M9Y-I73PEeq8dI6Q883UGQ">
+        <parameterMapping xmi:id="_M9Y-JL3PEeq8dI6Q883UGQ" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Credit Charge Card Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_M9Y-Jb3PEeq8dI6Q883UGQ" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="Interest Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_M9GDMb3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_M9GDM73PEeq8dI6Q883UGQ" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_NvTjQr3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-servicefees" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement-servicefees">
+    <sca:interface.wsdl xmi:id="_NvTjRr3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-servicefees)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_NvdUQL3PEeq8dI6Q883UGQ" name="RestService5" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_NvdUQr3PEeq8dI6Q883UGQ" operationName="get" nickname="retrieveCreditChargeCardFulfilmentArrangementServiceFees" httpMethod="GET" notes="details about fees applied to an account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information" responseStyle="element">
+        <responseStatus xmi:id="_NvwPML3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_NvwPMb3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_NvwPMr3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_NvwPM73PEeq8dI6Q883UGQ">
+        <parameterMapping xmi:id="_NvwPNL3PEeq8dI6Q883UGQ" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Credit Charge Card Fulfilment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_NvwPNb3PEeq8dI6Q883UGQ" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="ServiceFees Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_NvdUQb3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_NvdUQ73PEeq8dI6Q883UGQ" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="_O3uj4r3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-cardtransactions" promote="ComponentProcess/credit-charge-card-credit-charge-card-fulfillment-arrangement-cardtransactions">
+    <sca:interface.wsdl xmi:id="_O3uj5r3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-cardtransactions)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_O34U4L3PEeq8dI6Q883UGQ" name="RestService6" path="/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/cardtransactions/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CardService" docResourcePath="Credit-charge-card-credit-charge-card-fulfillment-arrangement" basePath="/credit-charge-card/v2" connector="cts.bian.cardservice.CreditChargeCard" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CreditChargeCard_v2_API.json">
+      <operation xmi:id="_O34U4r3PEeq8dI6Q883UGQ" operationName="get" nickname="retrieveCreditChargeCardFulfilmentArrangementCardTransaction" httpMethod="GET" notes="details about a card account transaction .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element">
+        <responseStatus xmi:id="_O4LP0L3PEeq8dI6Q883UGQ" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_O4LP0b3PEeq8dI6Q883UGQ" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_O4LP0r3PEeq8dI6Q883UGQ" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_O4LP073PEeq8dI6Q883UGQ">
+        <parameterMapping xmi:id="_O4LP1L3PEeq8dI6Q883UGQ" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Credit Charge Card Fulfilment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_O4LP1b3PEeq8dI6Q883UGQ" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="CardTransaction Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_O34U4b3PEeq8dI6Q883UGQ" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_O34U473PEeq8dI6Q883UGQ" bindingName="RestService6"/>
+  </sca:service>
+  <sca:property xmi:id="_rn7UcL2xEeq8dI6Q883UGQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_ro0sUL2xEeq8dI6Q883UGQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_rpuEML2xEeq8dI6Q883UGQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_rqncEL2xEeq8dI6Q883UGQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_rrgM4L2xEeq8dI6Q883UGQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_rsZkwL2xEeq8dI6Q883UGQ" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_rtJLoL2xEeq8dI6Q883UGQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_So7bEL3DEeq8dI6Q883UGQ" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_fIhvUL3DEeq8dI6Q883UGQ" name="/DataBaseConnection/DB_URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_w6FscL3DEeq8dI6Q883UGQ" name="/DataBaseConnection/DB_DRIVER" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_xMttgL3DEeq8dI6Q883UGQ" name="/DataBaseConnection/DB_USERNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3VqowL3DEeq8dI6Q883UGQ" name="/DataBaseConnection/DB_PASSWORD" type="property:password" scaext:simpleValue="#!oWG4RXPOxiYxYFfMKUABfQ==" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_re1p4L2xEeq8dI6Q883UGQ" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_re1p4b2xEeq8dI6Q883UGQ" processName="cts.bian.cardservice.CreditCardServices"/>
+    <sca:service xmi:id="_GflNML3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement">
+      <sca:interface.wsdl xmi:id="_GflNMb3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_IYugIL3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement1">
+      <sca:interface.wsdl xmi:id="_IYugIb3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement1)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_K34DIL3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-behavior-qualifiers">
+      <sca:interface.wsdl xmi:id="_K34DIb3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-behavior-qualifiers)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_LzL00L3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement2">
+      <sca:interface.wsdl xmi:id="_LzL00b3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement2)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_M88SML3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-interest">
+      <sca:interface.wsdl xmi:id="_M88SMb3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-interest)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_NvTjQL3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-servicefees">
+      <sca:interface.wsdl xmi:id="_NvTjQb3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-servicefees)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_O3uj4L3PEeq8dI6Q883UGQ" name="credit-charge-card-credit-charge-card-fulfillment-arrangement-cardtransactions">
+      <sca:interface.wsdl xmi:id="_O3uj4b3PEeq8dI6Q883UGQ" interface="http://xmlns.example.com/20200704044901PLT#wsdl.interface(credit-charge-card-credit-charge-card-fulfillment-arrangement-cardtransactions)" scaext:wsdlLocation="../Processes/cts/bian/cardservice/CreditCardServices.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_wsL4gL2xEeq8dI6Q883UGQ" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_wsL4gb2xEeq8dI6Q883UGQ" processName="cts.bian.cardservice.Activator"/>
+  </sca:component>
+</sca:composite>

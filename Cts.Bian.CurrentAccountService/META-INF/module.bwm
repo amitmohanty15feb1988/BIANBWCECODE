@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_dC8_oL0jEeqxqcvV61gWcw" targetNamespace="http://tns.tibco.com/bw/composite/Cts.Bian.CurrentAccountService" name="Cts.Bian.CurrentAccountService" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_avjpkr03EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement">
+    <sca:interface.wsdl xmi:id="_avkQob03EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_avk3sL03EeqxqcvV61gWcw" name="RestService7" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_avnT8L03EeqxqcvV61gWcw" operationName="get" nickname="RetrievecurrentAccountReferenceIds" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <parameters xmi:id="_avvPwr03EeqxqcvV61gWcw">
+          <parameterMapping xmi:id="_avvPw703EeqxqcvV61gWcw" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- currentAccount Instance Status='active' or 'customerReference == CR123'"/>
+        </parameters>
+        <responseStatus xmi:id="_avuosL03EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_avuosb03EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_avvPwL03EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_avvPwb03EeqxqcvV61gWcw"/>
+      <advancedConfig xmi:id="_avk3sb03EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_avnT8b03EeqxqcvV61gWcw" bindingName="RestService7"/>
+  </sca:service>
+  <sca:service xmi:id="_q_whor03EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-behavior-qualifiers" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement-behavior-qualifiers">
+    <sca:interface.wsdl xmi:id="_q_whpr03EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-behavior-qualifiers)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_q_xIsL03EeqxqcvV61gWcw" name="RestService8" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/behavior-qualifiers/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_q_yW0L03EeqxqcvV61gWcw" operationName="get" nickname="RetrievecurrentAccountBehaviorQualifiers" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <responseStatus xmi:id="_q_zk8L03EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_q_zk8b03EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_q_0MAL03EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_q_0MAb03EeqxqcvV61gWcw"/>
+      <advancedConfig xmi:id="_q_xIsb03EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_q_yW0b03EeqxqcvV61gWcw" bindingName="RestService8"/>
+  </sca:service>
+  <sca:service xmi:id="_V3OMMr04EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement1" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement1">
+    <sca:interface.wsdl xmi:id="_V3OMNr04EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement2)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_V3PaUL04EeqxqcvV61gWcw" name="RestService9" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_V3RPgL04EeqxqcvV61gWcw" operationName="get" nickname="RetrievecurrentAccountBehaviorQualifierReferenceIds" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <parameters xmi:id="_V3Vg9r04EeqxqcvV61gWcw">
+          <parameterMapping xmi:id="_V3Vg9704EeqxqcvV61gWcw" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- Interest Instance applicableInterestRate> '7%' or ex- amount> $5000"/>
+        </parameters>
+        <responseStatus xmi:id="_V3Vg8L04EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_V3Vg8b04EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_V3Vg8r04EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_V3Vg8704EeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_V3Vg9L04EeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="current Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_V3Vg9b04EeqxqcvV61gWcw" parameterName="behavior-qualifier" parameterType="Path" dataType="string" required="true" description="Behavior Qualifier Name. ex- Interest or ex- depositsandwithdrawals"/>
+      </parameters>
+      <advancedConfig xmi:id="_V3PaUb04EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_V3RPgb04EeqxqcvV61gWcw" bindingName="RestService9"/>
+  </sca:service>
+  <sca:service xmi:id="_tGYacr04EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement2" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement2">
+    <sca:interface.wsdl xmi:id="_tGZBgL04EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement3)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_tGZokL04EeqxqcvV61gWcw" name="RestService10" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_tGa2sL04EeqxqcvV61gWcw" operationName="get" nickname="retrievecurrentAccount" httpMethod="GET" notes="Retrieve information about a current account - either standard canned reports or selected instance attribute values" responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_tGfvML04EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_tGfvMb04EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_tGfvMr04EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_tGfvM704EeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_tGfvNL04EeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="current Account Fulfillment Arrangement Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_tGZokb04EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_tGa2sb04EeqxqcvV61gWcw" bindingName="RestService10"/>
+  </sca:service>
+  <sca:service xmi:id="_PPJ2kb05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-interest" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement-interest">
+    <sca:interface.wsdl xmi:id="_PPJ2lb05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-interest)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_PPKdoL05EeqxqcvV61gWcw" name="RestService11" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_PPLrwL05EeqxqcvV61gWcw" operationName="get" nickname="retrievecurrentAccountFulfillmentArrangementInterest" httpMethod="GET" notes="Retrieve details of an interest transaction applied internally to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_PPQkQL05EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_PPQkQb05EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_PPQkQr05EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_PPQkQ705EeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_PPQkRL05EeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="current Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_PPQkRb05EeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="Interest Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_PPKdob05EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_PPLrwb05EeqxqcvV61gWcw" bindingName="RestService11"/>
+  </sca:service>
+  <sca:service xmi:id="_eO_S8r05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-depositsandwithdrawals" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement-depositsandwithdrawals">
+    <sca:interface.wsdl xmi:id="_eO_6AL05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-depositsandwithdrawals)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_ePAhEL05EeqxqcvV61gWcw" name="RestService12" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/depositsandwithdrawals/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_ePBvML05EeqxqcvV61gWcw" operationName="get" nickname="retrievecurrentAccountFulfillmentArrangementDepositsAndWithdrawals" httpMethod="GET" notes="Retrieve details about a deposit or withdrawal transaction .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_ePLgML05EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_ePLgMb05EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_ePLgMr05EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_ePLgM705EeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_ePLgNL05EeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="current Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_ePLgNb05EeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="DepositsAndWithdrawals Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_ePAhEb05EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_ePBvMb05EeqxqcvV61gWcw" bindingName="RestService12"/>
+  </sca:service>
+  <sca:service xmi:id="_8OjeAL05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-servicefees" promote="ComponentCurrentAccountService/current-account-current-account-fulfillment-arrangement-servicefees">
+    <sca:interface.wsdl xmi:id="_8OjeBL05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-servicefees)" scaext:wsdlLocation="../Processes/cts/bian/accountservice/CurrentAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_8OkFEL05EeqxqcvV61gWcw" name="RestService13" path="/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.CurrentAccountService" docResourcePath="Current-account-current-account-fulfillment-arrangement" basePath="/current-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/CurrentAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_8OlTML05EeqxqcvV61gWcw" operationName="get" nickname="retrievecurrentAccountFulfillmentArrangementServiceFees" httpMethod="GET" notes="Retrieve information about a service fee applied to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_8Ot2EL05EeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_8Ot2Eb05EeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_8Ot2Er05EeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_8Ot2E705EeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_8Ot2FL05EeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="current Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_8Ot2Fb05EeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="ServiceFees Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_8OkFEb05EeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_8OlTMb05EeqxqcvV61gWcw" bindingName="RestService13"/>
+  </sca:service>
+  <sca:property xmi:id="_f8Pg8L0jEeqxqcvV61gWcw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8k4IL0jEeqxqcvV61gWcw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8sM4L0jEeqxqcvV61gWcw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8y6kL0jEeqxqcvV61gWcw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8_u4L0jEeqxqcvV61gWcw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f9FOcL0jEeqxqcvV61gWcw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_f9OYYL0jEeqxqcvV61gWcw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xNOk8L1BEeq6quKE4aLAMA" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DSP04L3XEeqf4KQPuHtwQg" name="/DataBaseConnection/DB_USERNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GuD0cL3XEeqf4KQPuHtwQg" name="/DataBaseConnection/DB_PASSWORD" type="property:password" scaext:simpleValue="#!byezpF+O83KUSehbLo4pDA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GvuoYL3XEeqf4KQPuHtwQg" name="/DataBaseConnection/DB_DRIVER" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GwlkAL3XEeqf4KQPuHtwQg" name="/DataBaseConnection/DB_URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_waYeoL00EeqxqcvV61gWcw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_waYeob00EeqxqcvV61gWcw" processName="cts.bian.currentaccountservice.Activator"/>
+  </sca:component>
+  <sca:component xmi:id="_YOQxgL03EeqxqcvV61gWcw" name="ComponentCurrentAccountService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_YOQxgb03EeqxqcvV61gWcw" processName="cts.bian.currentaccountservice.CurrentAccountService"/>
+    <sca:service xmi:id="_avjpkL03EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement">
+      <sca:interface.wsdl xmi:id="_avjpkb03EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement)"/>
+    </sca:service>
+    <sca:service xmi:id="_q_whoL03EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-behavior-qualifiers">
+      <sca:interface.wsdl xmi:id="_q_whob03EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-behavior-qualifiers)"/>
+    </sca:service>
+    <sca:service xmi:id="_V3OMML04EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement1">
+      <sca:interface.wsdl xmi:id="_V3OMMb04EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement2)"/>
+    </sca:service>
+    <sca:service xmi:id="_tGYacL04EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement2">
+      <sca:interface.wsdl xmi:id="_tGYacb04EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement3)"/>
+    </sca:service>
+    <sca:service xmi:id="_PPJPgL05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-interest">
+      <sca:interface.wsdl xmi:id="_PPJ2kL05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-interest)"/>
+    </sca:service>
+    <sca:service xmi:id="_eO_S8L05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-depositsandwithdrawals">
+      <sca:interface.wsdl xmi:id="_eO_S8b05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-depositsandwithdrawals)"/>
+    </sca:service>
+    <sca:service xmi:id="_8Oi28L05EeqxqcvV61gWcw" name="current-account-current-account-fulfillment-arrangement-servicefees">
+      <sca:interface.wsdl xmi:id="_8Oi28b05EeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703194333PLT#wsdl.interface(current-account-current-account-fulfillment-arrangement-servicefees)"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>

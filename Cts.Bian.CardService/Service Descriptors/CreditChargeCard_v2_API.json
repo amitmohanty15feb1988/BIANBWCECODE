@@ -1,0 +1,600 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "credit-charge-card-v2 service",
+    "description": "Orchestrates the Credit Cards scheduled maintenance and transactional activities"
+  },
+  "host": "localhost:8080",
+  "basePath": "/credit-charge-card/v2",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/": {
+      "get": {
+        "summary": "Invoke a reporting action to obtain a ServiceFees instance related report.",
+        "description": "details about fees applied to an account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information",
+        "operationId": "retrieveCreditChargeCardFulfilmentArrangementServiceFees",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Credit Charge Card Fulfilment Arrangement Instance Reference",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "ServiceFees Instance Reference",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved ServiceFees Instance Record",
+            "schema": {
+              "$ref": "#/definitions/creditChargeCardFulfillmentArrangementServiceFeesInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/cardtransactions/{bq-reference-id}/": {
+      "get": {
+        "summary": "Invoke a reporting action to obtain a CardTransactions instance related report.",
+        "description": "details about a card account transaction .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information.",
+        "operationId": "retrieveCreditChargeCardFulfilmentArrangementCardTransaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Credit Charge Card Fulfilment Arrangement Instance Reference",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "CardTransaction Instance Reference",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved CardTransaction Instance Record",
+            "schema": {
+              "$ref": "#/definitions/creditChargeCardFulfillmentArrangementCardTransactionsInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/": {
+      "get": {
+        "summary": "Invoke a reporting action to obtain a Interest instance related report.",
+        "description": "details about interest accrued to an account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information",
+        "operationId": "retrieveCreditChargeCardFulfilmentArrangementInterest",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Credit Charge Card Fulfillment Arrangement Instance Reference",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "bq-reference-id",
+            "in": "path",
+            "description": "Interest Instance Reference",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully  Retrieved Interest Instance Record",
+            "schema": {
+              "$ref": "#/definitions/creditChargeCardFulfillmentArrangementInterestInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/": {
+      "get": {
+        "summary": "Retrieve Behavior Qualifier Reference Ids",
+        "description": "",
+        "operationId": "RetrieveCreditChargeCardBehaviorQualifierReferenceIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "collection-filter",
+            "in": "query",
+            "description": "Filter to refine the result set. ex- CreditChargeCard Instance Status='active'",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Credit Charge Card Fulfilment Arrangement Instance Reference",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "behavior-qualifier",
+            "in": "path",
+            "description": "Behavior Qualifier Name. ex- Interest or ex- CardTransactions",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "uniqueItems": false
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/": {
+      "get": {
+        "summary": "Retrieve CR Ids",
+        "description": "",
+        "operationId": "RetrieveCreditChargeCardReferenceIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "collection-filter",
+            "in": "query",
+            "description": "Filter to refine the result set. ex- CreditChargeCard Instance Status='active'",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "uniqueItems": false
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/behavior-qualifiers/": {
+      "get": {
+        "summary": "Retrieve BQ names",
+        "description": "",
+        "operationId": "RetrieveCreditChargeCardBehaviorQualifiers",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "uniqueItems": false
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/credit-charge-card/credit-charge-card-fulfillment-arrangement/{cr-reference-id}": {
+      "get": {
+        "summary": "Invoke a reporting action to obtain a Credit Charge Card Fulfillment Arrangement instance related report",
+        "description": "details about a card account",
+        "operationId": "retrieveCreditChargeCard",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cr-reference-id",
+            "in": "path",
+            "description": "Credit Charge Card Fulfillment Arrangement Instance Reference",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved Credit Charge Card Fulfilment Arrangement Instance",
+            "schema": {
+              "$ref": "#/definitions/creditChargeCardFulfillmentArrangementInstanceRecord"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "creditChargeCardFulfillmentArrangementInterestInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "accuredInterestAmount": {
+          "type": "string"
+        },
+        "applicableInterestRate": {
+          "type": "string"
+        },
+        "interestRateTransactionReference": {
+          "type": "string"
+        },
+        "productInstanceReference": {
+          "type": "string"
+        },
+        "rateApplicationSchedule": {
+          "type": "string"
+        },
+        "rateRateConfiguration": {
+          "$ref": "#/definitions/rateRateConfiguration"
+        }
+      }
+    },
+    "creditChargeCardFulfillmentArrangementServiceFeesInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "feeConfigurationProfile": {
+          "$ref": "#/definitions/feeConfigurationProfile"
+        },
+        "productInstanceReference": {
+          "type": "string"
+        },
+        "feeApplicationRecord": {
+          "$ref": "#/definitions/feeApplicationRecord"
+        }
+      }
+    },
+    "feeAccrualAmount": {
+      "type": "object",
+      "properties": {
+        "accrualFeeType": {
+          "type": "string"
+        },
+        "accrualFeeCharge": {
+          "type": "string"
+        }
+      }
+    },
+    "feeConfigurationProfile": {
+      "type": "object",
+      "properties": {
+        "feeType": {
+          "type": "string"
+        },
+        "feeDefinition": {
+          "type": "string"
+        }
+      }
+    },
+    "feeTransaction": {
+      "type": "object",
+      "properties": {
+        "transactionReference": {
+          "type": "string"
+        },
+        "transactionDescription": {
+          "type": "string"
+        },
+        "transactionFeeType": {
+          "type": "string"
+        },
+        "transactionFeeCharge": {
+          "type": "string"
+        }
+      }
+    },
+    "creditChargeCardFulfillmentArrangementCardTransactionsInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "cardTransactionCurrency": {
+          "type": "string"
+        },
+        "cardTransactionMerchantReference": {
+          "type": "string"
+        },
+        "cardTransactionDateTime": {
+          "type": "string"
+        },
+        "merchantAcquiringBankReference": {
+          "type": "string"
+        },
+        "cardIssuingBankReference": {
+          "type": "string"
+        },
+        "cardTransactionAmountType": {
+          "type": "string"
+        },
+        "cardTransactionLocationReference": {
+          "type": "string"
+        },
+        "cardTransactionType": {
+          "type": "string"
+        },
+        "productInstanceReference": {
+          "type": "string"
+        },
+        "cardTransactionRecordReference": {
+          "type": "string"
+        },
+        "cardTransactionAmount": {
+          "type": "string"
+        },
+        "cardTransactionProductServiceReference": {
+          "type": "string"
+        },
+        "accountInstanceReference": {
+          "type": "string"
+        }
+      }
+    },
+    "rateRateConfiguration": {
+      "type": "object",
+      "properties": {}
+    },
+    "feeApplicationRecord": {
+      "type": "object",
+      "properties": {
+        "feeTransaction": {
+          "$ref": "#/definitions/feeTransaction"
+        },
+        "feeProjectionsandCommitments": {
+          "$ref": "#/definitions/feeProjectionsandCommitments"
+        },
+        "feeAccrualAmount": {
+          "$ref": "#/definitions/feeAccrualAmount"
+        }
+      }
+    },
+    "feeProjectionsandCommitments": {
+      "type": "object",
+      "properties": {
+        "projectedTransactionDescription": {
+          "type": "string"
+        },
+        "projectedTransactionFeeType": {
+          "type": "string"
+        },
+        "projectedTransactionFeeCharge": {
+          "type": "string"
+        }
+      }
+    },
+    "creditChargeCardFulfillmentArrangementInstanceRecord": {
+      "type": "object",
+      "properties": {
+        "productServiceReference": {
+          "type": "string"
+        },
+        "allowedAccess": {
+          "type": "string"
+        },
+        "cardAccountLimits": {
+          "type": "string"
+        },
+        "taxReference": {
+          "type": "string"
+        },
+        "issuedDeviceReference": {
+          "type": "string"
+        },
+        "cardType": {
+          "type": "string"
+        },
+        "secondaryBillingCurrency": {
+          "type": "string"
+        },
+        "configurationOptions": {
+          "type": "string"
+        },
+        "partyReference": {
+          "type": "string"
+        },
+        "issuedDeviceType": {
+          "type": "string"
+        },
+        "bankBranchLocationReference": {
+          "type": "string"
+        },
+        "productInstanceReference": {
+          "type": "string"
+        },
+        "involvedPartyObligationEntitlement": {
+          "type": "string"
+        },
+        "cardAccountStatus": {
+          "type": "string"
+        },
+        "involvedPartyReference": {
+          "type": "string"
+        },
+        "customerReference": {
+          "type": "string"
+        },
+        "cardAccountCurrency": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:source="bw.rest" xmlns:tns="http://xmlns.example.com/Savings-account-savings-account-fulfillment-arrangement/parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xmlns.example.com/Savings-account-savings-account-fulfillment-arrangement/parameters">
+  <xs:element name="savings-account-savings-account-fulfillment-arrangement1GetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="behavior-qualifier" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="collection-filter" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement2GetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="behavior-qualifier" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="collection-filter" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement3GetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement-interestGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="bq-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawalsGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="bq-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement-servicefeesGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="bq-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement4GetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="1" name="behavior-qualifier" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="collection-filter" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="savings-account-savings-account-fulfillment-arrangement5GetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="0" name="collection-filter" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="current-account-v2-current-account-current-account-fulfillment-arrangement-cr-reference-idGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="credit-charge-card-credit-charge-card-fulfillment-arrangement-cr-reference-idGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="cr-reference-id" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_dC8_oL0jEeqxqcvV61gWcw" targetNamespace="http://tns.tibco.com/bw/composite/Cts.Bian.SavingAccountService" name="Cts.Bian.SavingAccountService" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_TuCh4r0nEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement3" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement3">
+    <sca:interface.wsdl xmi:id="_TuCh5r0nEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement3)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_TuDwAL0nEeqxqcvV61gWcw" name="RestService3" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_TuE-IL0nEeqxqcvV61gWcw" operationName="get" nickname="retrieveSavingsAccount" httpMethod="GET" notes="Retrieve information about a savings account - either standard canned reports or selected instance attribute values" responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_TuM58L0nEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_TuM58b0nEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_TuM58r0nEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_TuM5870nEeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_TuM59L0nEeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Savings Account Fulfillment Arrangement Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_TuDwAb0nEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_TuE-Ib0nEeqxqcvV61gWcw" bindingName="RestService3"/>
+  </sca:service>
+  <sca:service xmi:id="_0s36cr0nEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-interest" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement-interest">
+    <sca:interface.wsdl xmi:id="_0s36dr0nEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-interest)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_0s5voL0nEeqxqcvV61gWcw" name="RestService4" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_0s7k0L0nEeqxqcvV61gWcw" operationName="get" nickname="retrieveSavingsAccountFulfillmentArrangementInterest" httpMethod="GET" notes="Retrieve details of an interest transaction applied internally to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_0tHyEL0nEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_0tHyEb0nEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_0tHyEr0nEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_0tHyE70nEeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_0tHyFL0nEeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Savings Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_0tHyFb0nEeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="Interest Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_0s5vob0nEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_0s7k0b0nEeqxqcvV61gWcw" bindingName="RestService4"/>
+  </sca:service>
+  <sca:service xmi:id="_SzvnYr0oEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawals" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawals">
+    <sca:interface.wsdl xmi:id="_SzvnZr0oEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawals)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_Szw1gL0oEeqxqcvV61gWcw" name="RestService5" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/depositsandwithdrawals/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_SzyDoL0oEeqxqcvV61gWcw" operationName="get" nickname="retrieveSavingsAccountFulfillmentArrangementDepositsAndWithdrawals" httpMethod="GET" notes="Retrieve details about a deposit or withdrawal transaction .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_Sz-Q4L0oEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_Sz-Q4b0oEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_Sz-Q4r0oEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_Sz-Q470oEeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_Sz-Q5L0oEeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Savings Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_Sz-Q5b0oEeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="DepositsAndWithdrawals Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_Szw1gb0oEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_SzyDob0oEeqxqcvV61gWcw" bindingName="RestService5"/>
+  </sca:service>
+  <sca:service xmi:id="_KNlNYr0pEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-servicefees" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement-servicefees">
+    <sca:interface.wsdl xmi:id="_KNl0cL0pEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-servicefees)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_KNnCkL0pEeqxqcvV61gWcw" name="RestService6" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_KNoQsL0pEeqxqcvV61gWcw" operationName="get" nickname="retrieveSavingsAccountFulfillmentArrangementServiceFees" httpMethod="GET" notes="Retrieve information about a service fee applied to the account .The retrieve operation can have sub qualifiers beyond BQ level, please reffer to the model heriarchy to extend beyond BQ level into APIs retrieving sub-qualifier level information." responseStyle="element" outputPartName="item">
+        <responseStatus xmi:id="_KN0d8L0pEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_KN0d8b0pEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_KN0d8r0pEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_KN0d870pEeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_KN0d9L0pEeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Savings Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_KN0d9b0pEeqxqcvV61gWcw" parameterName="bq-reference-id" parameterType="Path" dataType="string" required="true" description="ServiceFees Instance Reference"/>
+      </parameters>
+      <advancedConfig xmi:id="_KNnCkb0pEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_KNoQsb0pEeqxqcvV61gWcw" bindingName="RestService6"/>
+  </sca:service>
+  <sca:service xmi:id="_T5B3oL0sEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-behavior-qualifiers" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement-behavior-qualifiers">
+    <sca:interface.wsdl xmi:id="_T5B3pL0sEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-behavior-qualifiers)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_T5CesL0sEeqxqcvV61gWcw" name="RestService1" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/behavior-qualifiers/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_T5Ds0L0sEeqxqcvV61gWcw" operationName="get" nickname="RetrieveSavingsAccountBehaviorQualifiers" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <responseStatus xmi:id="_T5Yc8L0sEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_T5ZEAL0sEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_T5ZEAb0sEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_T5ZEAr0sEeqxqcvV61gWcw"/>
+      <advancedConfig xmi:id="_T5Cesb0sEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_T5Ds0b0sEeqxqcvV61gWcw" bindingName="RestService1"/>
+  </sca:service>
+  <sca:service xmi:id="_h_8vAL0sEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement1" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement1">
+    <sca:interface.wsdl xmi:id="_h_8vBL0sEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement4)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_h_99IL0sEeqxqcvV61gWcw" name="RestService2" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json" policySets="cts.bian.accountservice.BasicAuthentication" scaext:policySetLocations="BWRestHttpServiceBinding">
+      <operation xmi:id="_h_-kML0sEeqxqcvV61gWcw" operationName="get" nickname="RetrieveSavingsAccountBehaviorQualifierReferenceIds" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <parameters xmi:id="_iAPp9b0sEeqxqcvV61gWcw">
+          <parameterMapping xmi:id="_iAPp9r0sEeqxqcvV61gWcw" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- Interest Instance applicableInterestRate> '7%' or ex- amount> $5000"/>
+        </parameters>
+        <responseStatus xmi:id="_iAPC4L0sEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_iAPp8L0sEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_iAPp8b0sEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_iAPp8r0sEeqxqcvV61gWcw">
+        <parameterMapping xmi:id="_iAPp870sEeqxqcvV61gWcw" parameterName="cr-reference-id" parameterType="Path" dataType="string" required="true" description="Savings Account Fulfillment Arrangement Instance Reference"/>
+        <parameterMapping xmi:id="_iAPp9L0sEeqxqcvV61gWcw" parameterName="behavior-qualifier" parameterType="Path" dataType="string" required="true" description="Behavior Qualifier Name. ex- Interest or ex- depositsandwithdrawals"/>
+      </parameters>
+      <advancedConfig xmi:id="_h_99Ib0sEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_h_-kMb0sEeqxqcvV61gWcw" bindingName="RestService2"/>
+  </sca:service>
+  <sca:service xmi:id="_v3Uxsb0wEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement" promote="ComponentSavingAccountService/savings-account-savings-account-fulfillment-arrangement">
+    <sca:interface.wsdl xmi:id="_v3Uxtb0wEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement5)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_v3Wm4L0wEeqxqcvV61gWcw" name="RestService" path="/savings-account/v2/savings-account/savings-account-fulfillment-arrangement/" docBasePath="http://localhost:7777/Cts.Bian.SavingAccountService" docResourcePath="Savings-account-savings-account-fulfillment-arrangement" basePath="/savings-account/v2" connector="cts.bian.accountservice.account-v2" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/SavingsAccount_v2_API.json">
+      <operation xmi:id="_v3X1AL0wEeqxqcvV61gWcw" operationName="get" nickname="RetrieveSavingsAccountReferenceIds" httpMethod="GET" responseStyle="array" outputPartName="item">
+        <parameters xmi:id="_v3a4VL0wEeqxqcvV61gWcw">
+          <parameterMapping xmi:id="_v3a4Vb0wEeqxqcvV61gWcw" parameterName="collection-filter" parameterType="Query" dataType="string" description="Filter to refine the result set. ex- SavingsAccount Instance Status='active' or 'customerReference == CR123'"/>
+        </parameters>
+        <responseStatus xmi:id="_v3a4UL0wEeqxqcvV61gWcw" statusCode="401" reasonPhrase="Unauthorized" dataType="string"/>
+        <responseStatus xmi:id="_v3a4Ub0wEeqxqcvV61gWcw" statusCode="403" reasonPhrase="Forbidden" dataType="string"/>
+        <responseStatus xmi:id="_v3a4Ur0wEeqxqcvV61gWcw" statusCode="404" reasonPhrase="Not Found" dataType="string"/>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_v3a4U70wEeqxqcvV61gWcw"/>
+      <advancedConfig xmi:id="_v3Wm4b0wEeqxqcvV61gWcw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_v3X1Ab0wEeqxqcvV61gWcw" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_f8Pg8L0jEeqxqcvV61gWcw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8k4IL0jEeqxqcvV61gWcw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8sM4L0jEeqxqcvV61gWcw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8y6kL0jEeqxqcvV61gWcw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f8_u4L0jEeqxqcvV61gWcw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_f9FOcL0jEeqxqcvV61gWcw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_f9OYYL0jEeqxqcvV61gWcw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_xNOk8L1BEeq6quKE4aLAMA" name="SERVICE_NAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cveYoMAFEeqE9d27hrXprg" name="CURRENT_ACCOUNT_SERVICENAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_c252UMAFEeqE9d27hrXprg" name="CREDIT_CARD_ACCOUNT_SERVICENAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7e_Z8MAFEeqE9d27hrXprg" name="CURRENT_ACCOUNT_COMMANDNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7hpFUMAFEeqE9d27hrXprg" name="CREDIT_CARD_COMMANDNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YqGCMMAGEeqE9d27hrXprg" name="CURRENT_ACCOUNT_HOST" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ys9wAMAGEeqE9d27hrXprg" name="CREDIT_CARD_HOST" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4usRML3DEeqo-_vY-M229A" name="/DataBaseConnection/DB_USERNAME" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7YTXwL3DEeqo-_vY-M229A" name="/DataBaseConnection/DB_PASSWORD" type="property:password" scaext:simpleValue="#!ZvRpDxfoPUc4nlIbodwi/w==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7bsC8L3DEeqo-_vY-M229A" name="/DataBaseConnection/DB_DRIVER" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7fgzAL3DEeqo-_vY-M229A" name="/DataBaseConnection/DB_URL" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_5rXfoL0lEeqxqcvV61gWcw" name="ComponentSavingAccountService" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_5rXfob0lEeqxqcvV61gWcw" processName="cts.bian.savingaccountservice.SavingAccountService"/>
+    <sca:service xmi:id="_TuCh4L0nEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement3">
+      <sca:interface.wsdl xmi:id="_TuCh4b0nEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement3)"/>
+    </sca:service>
+    <sca:service xmi:id="_0s36cL0nEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-interest">
+      <sca:interface.wsdl xmi:id="_0s36cb0nEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-interest)"/>
+    </sca:service>
+    <sca:service xmi:id="_SzvnYL0oEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawals">
+      <sca:interface.wsdl xmi:id="_SzvnYb0oEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-depositsandwithdrawals)"/>
+    </sca:service>
+    <sca:service xmi:id="_KNlNYL0pEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-servicefees">
+      <sca:interface.wsdl xmi:id="_KNlNYb0pEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-servicefees)"/>
+    </sca:service>
+    <sca:service xmi:id="_T5ApgL0sEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement-behavior-qualifiers">
+      <sca:interface.wsdl xmi:id="_T5Apgb0sEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement-behavior-qualifiers)"/>
+    </sca:service>
+    <sca:service xmi:id="_h_8H8L0sEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement1">
+      <sca:interface.wsdl xmi:id="_h_8H8b0sEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement4)" scaext:wsdlLocation="../Processes/cts/bian/savingaccountservice/module/SavingAccountService.bwp"/>
+    </sca:service>
+    <sca:service xmi:id="_v3UKoL0wEeqxqcvV61gWcw" name="savings-account-savings-account-fulfillment-arrangement">
+      <sca:interface.wsdl xmi:id="_v3UxsL0wEeqxqcvV61gWcw" interface="http://xmlns.example.com/20200703173826PLT#wsdl.interface(savings-account-savings-account-fulfillment-arrangement5)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_waYeoL00EeqxqcvV61gWcw" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_waYeob00EeqxqcvV61gWcw" processName="cts.bian.savingaccountservice.Activator"/>
+  </sca:component>
+</sca:composite>

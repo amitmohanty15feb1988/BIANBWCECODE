@@ -1,0 +1,12 @@
+{"records": [
+    {
+        "jsonSchemaLocation": "/Cts.Bian.CardService/Service Descriptors/CreditChargeCard_v2_API.json",
+        "conversionType": "generated",
+        "xsdSchemaTargetNamespace": "/credit-charge-card/v2/T1593850772956Converted/JsonSchema"
+    },
+    {
+        "jsonSchemaLocation": "/Cts.Bian.CardService/Service Descriptors/cts.bian.cardservice.CreditCardServices-Credit-charge-card-credit-charge-card-fulfillment-arrangement.json",
+        "conversionType": "linked",
+        "xsdSchemaTargetNamespace": "/credit-charge-card/v2/T1593850772956Converted/JsonSchema"
+    }
+]}

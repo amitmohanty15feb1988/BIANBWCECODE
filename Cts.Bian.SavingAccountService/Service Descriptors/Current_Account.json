@@ -1,0 +1,540 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Cts.Bian.CurrentAccountService.application"
+  },
+  "host" : "DESKTOP-BFFG2UJ:8080",
+  "schemes" : [ "http" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/servicefees/{bq-reference-id}/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Invoke a reporting action to obtain a ServiceFees instance related report.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cr-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bq-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/currentAccountFulfillmentArrangementServiceFeesInstanceRecord"
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/depositsandwithdrawals/{bq-reference-id}/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Invoke a reporting action to obtain a DepositsAndWithdrawals instance related report.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cr-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bq-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/currentAccountFulfillmentArrangementDepositsAndWithdrawalsInstanceRecord"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/interest/{bq-reference-id}/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Invoke a reporting action to obtain a Interest instance related report.",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cr-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bq-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/currentAccountFulfillmentArrangementInterestInstanceRecord"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}/{behavior-qualifier}/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Retrieve Behavior Qualifier Reference Ids",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cr-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "behavior-qualifier",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "collection-filter",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/behavior-qualifiers/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Retrieve BQ names",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Retrieve CR Ids",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "collection-filter",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/current-account/v2/current-account/current-account-fulfillment-arrangement/{cr-reference-id}" : {
+      "get" : {
+        "tags" : [ "Current-account-current-account-fulfillment-arrangement" ],
+        "summary" : "Invoke a reporting action to obtain a current Account Fulfillment Arrangement instance related report",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "cr-reference-id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "Not Found",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "200" : {
+            "description" : "Sample Description",
+            "schema" : {
+              "$ref" : "#/definitions/currentAccountFulfillmentArrangementInstanceRecord"
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "currentAccountFulfillmentArrangementDepositsAndWithdrawalsInstanceRecord" : {
+      "type" : "object",
+      "properties" : {
+        "depositType" : {
+          "type" : "string"
+        },
+        "withdrawalType" : {
+          "type" : "string"
+        },
+        "accountLimit" : {
+          "type" : "string"
+        },
+        "accountLimitType" : {
+          "type" : "string"
+        },
+        "productInstanceReference" : {
+          "type" : "string"
+        },
+        "depositTransaction" : {
+          "type" : "object",
+          "properties" : {
+            "depositTransactionDescription" : {
+              "type" : "string"
+            },
+            "depositTransactionDepositType" : {
+              "type" : "string"
+            },
+            "depositTransactionSourceReference" : {
+              "type" : "string"
+            },
+            "depositTransactionCurrency" : {
+              "type" : "string"
+            },
+            "depositTransactionDate" : {
+              "type" : "string"
+            },
+            "depositTransactionAmount" : {
+              "type" : "string"
+            }
+          }
+        },
+        "withdrawalTransaction" : {
+          "type" : "object",
+          "properties" : {
+            "withdrawalTransactionWithdrawalType" : {
+              "type" : "string"
+            },
+            "withdrawalTransactionSourceReference" : {
+              "type" : "string"
+            },
+            "withdrawalTransactionAmount" : {
+              "type" : "string"
+            },
+            "withdrawalTransactionDate" : {
+              "type" : "string"
+            },
+            "withdrawalTransactionDescription" : {
+              "type" : "string"
+            },
+            "withdrawalTransactionCurrency" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "currentAccountFulfillmentArrangementServiceFeesInstanceRecord" : {
+      "type" : "object",
+      "properties" : {
+        "feeConfigurationProfile" : {
+          "type" : "object",
+          "properties" : {
+            "feeDefinition" : {
+              "type" : "string"
+            },
+            "feeType" : {
+              "type" : "string"
+            }
+          }
+        },
+        "productInstanceReference" : {
+          "type" : "string"
+        },
+        "feeApplicationRecord" : {
+          "type" : "object",
+          "properties" : {
+            "feeAccrualAmount" : {
+              "type" : "object",
+              "properties" : {
+                "accrualFeeType" : {
+                  "type" : "string"
+                },
+                "accrualFeeCharge" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "feeTransaction" : {
+              "type" : "object",
+              "properties" : {
+                "transactionReference" : {
+                  "type" : "string"
+                },
+                "transactionFeeCharge" : {
+                  "type" : "string"
+                },
+                "transactionDescription" : {
+                  "type" : "string"
+                },
+                "transactionFeeType" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "feeProjectionsandCommitments" : {
+              "type" : "object",
+              "properties" : {
+                "projectedTransactionDescription" : {
+                  "type" : "string"
+                },
+                "projectedTransactionFeeType" : {
+                  "type" : "string"
+                },
+                "projectedTransactionFeeCharge" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "currentAccountFulfillmentArrangementInterestInstanceRecord" : {
+      "type" : "object",
+      "properties" : {
+        "accuredInterestAmount" : {
+          "type" : "string"
+        },
+        "applicableInterestRate" : {
+          "type" : "string"
+        },
+        "interestRateTransactionReference" : {
+          "type" : "string"
+        },
+        "productInstanceReference" : {
+          "type" : "string"
+        },
+        "rateApplicationSchedule" : {
+          "type" : "string",
+          "enum" : [ "ADHO", "INDA", "MNTH", "WEEK", "MIAN", "YEAR", "QURT", "DAIL" ]
+        },
+        "rateRateConfiguration" : {
+          "type" : "string"
+        }
+      }
+    },
+    "currentAccountFulfillmentArrangementInstanceRecord" : {
+      "type" : "object",
+      "properties" : {
+        "accountCurrency" : {
+          "type" : "string"
+        },
+        "accountLimit" : {
+          "type" : "string"
+        },
+        "accountLimitType" : {
+          "type" : "string"
+        },
+        "accountStatus" : {
+          "type" : "string"
+        },
+        "accountType" : {
+          "type" : "string"
+        },
+        "allowedAccess" : {
+          "type" : "string"
+        },
+        "bankBranchLocationReference" : {
+          "type" : "string"
+        },
+        "customerCommentary" : {
+          "type" : "string"
+        },
+        "customerReference" : {
+          "type" : "string"
+        },
+        "date" : {
+          "type" : "string"
+        },
+        "dateType" : {
+          "type" : "string"
+        },
+        "involvedPartyObligationEntitlement" : {
+          "type" : "string"
+        },
+        "involvedPartyReference" : {
+          "type" : "string"
+        },
+        "option" : {
+          "type" : "string"
+        },
+        "optionType" : {
+          "type" : "string"
+        },
+        "partyReference" : {
+          "type" : "string"
+        },
+        "productInstanceReference" : {
+          "type" : "string"
+        },
+        "currentAccountNumber" : {
+          "type" : "string"
+        },
+        "taxReference" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

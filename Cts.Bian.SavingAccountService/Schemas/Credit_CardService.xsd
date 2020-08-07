@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1594093440821Converted/JsonSchema" xmlns:tns="/T1594093440821Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="rateRateConfiguration" type="tns:rateRateConfiguration"/>
+    <xs:complexType name="rateRateConfiguration">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:element name="feeApplicationRecord" type="tns:feeApplicationRecord"/>
+    <xs:complexType name="feeApplicationRecord">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="feeTransaction" type="tns:feeTransaction"/>
+            <xs:element minOccurs="0" name="feeProjectionsandCommitments" type="tns:feeProjectionsandCommitments"/>
+            <xs:element minOccurs="0" name="feeAccrualAmount" type="tns:feeAccrualAmount"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="creditChargeCardFulfillmentArrangementServiceFeesInstanceRecord" type="tns:creditChargeCardFulfillmentArrangementServiceFeesInstanceRecord"/>
+    <xs:complexType name="creditChargeCardFulfillmentArrangementServiceFeesInstanceRecord">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="feeConfigurationProfile" type="tns:feeConfigurationProfile"/>
+            <xs:element minOccurs="0" name="productInstanceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="feeApplicationRecord" type="tns:feeApplicationRecord"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="feeTransaction" type="tns:feeTransaction"/>
+    <xs:complexType name="feeTransaction">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="transactionReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="transactionDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="transactionFeeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="transactionFeeCharge" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="creditChargeCardFulfillmentArrangementInstanceRecord" type="tns:creditChargeCardFulfillmentArrangementInstanceRecord"/>
+    <xs:complexType name="creditChargeCardFulfillmentArrangementInstanceRecord">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="productServiceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="allowedAccess" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardAccountLimits" type="xs:string"/>
+            <xs:element minOccurs="0" name="taxReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="issuedDeviceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardType" type="xs:string"/>
+            <xs:element minOccurs="0" name="secondaryBillingCurrency" type="xs:string"/>
+            <xs:element minOccurs="0" name="configurationOptions" type="xs:string"/>
+            <xs:element minOccurs="0" name="partyReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="issuedDeviceType" type="xs:string"/>
+            <xs:element minOccurs="0" name="bankBranchLocationReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="productInstanceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="involvedPartyObligationEntitlement" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardAccountStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="involvedPartyReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="customerReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardAccountCurrency" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="feeProjectionsandCommitments" type="tns:feeProjectionsandCommitments"/>
+    <xs:complexType name="feeProjectionsandCommitments">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="projectedTransactionDescription" type="xs:string"/>
+            <xs:element minOccurs="0" name="projectedTransactionFeeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="projectedTransactionFeeCharge" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="creditChargeCardFulfillmentArrangementInterestInstanceRecord" type="tns:creditChargeCardFulfillmentArrangementInterestInstanceRecord"/>
+    <xs:complexType name="creditChargeCardFulfillmentArrangementInterestInstanceRecord">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="accuredInterestAmount" type="xs:string"/>
+            <xs:element minOccurs="0" name="applicableInterestRate" type="xs:string"/>
+            <xs:element minOccurs="0" name="interestRateTransactionReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="productInstanceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="rateApplicationSchedule" type="xs:string"/>
+            <xs:element minOccurs="0" name="rateRateConfiguration" type="tns:rateRateConfiguration"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="stringArray" type="tns:stringArray"/>
+    <xs:complexType name="stringArray">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="string" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="feeConfigurationProfile" type="tns:feeConfigurationProfile"/>
+    <xs:complexType name="feeConfigurationProfile">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="feeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="feeDefinition" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="feeAccrualAmount" type="tns:feeAccrualAmount"/>
+    <xs:complexType name="feeAccrualAmount">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="accrualFeeType" type="xs:string"/>
+            <xs:element minOccurs="0" name="accrualFeeCharge" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="creditChargeCardFulfillmentArrangementCardTransactionsInstanceRecord" type="tns:creditChargeCardFulfillmentArrangementCardTransactionsInstanceRecord"/>
+    <xs:complexType name="creditChargeCardFulfillmentArrangementCardTransactionsInstanceRecord">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="cardTransactionCurrency" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionMerchantReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionDateTime" type="xs:string"/>
+            <xs:element minOccurs="0" name="merchantAcquiringBankReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardIssuingBankReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionAmountType" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionLocationReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionType" type="xs:string"/>
+            <xs:element minOccurs="0" name="productInstanceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionRecordReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionAmount" type="xs:string"/>
+            <xs:element minOccurs="0" name="cardTransactionProductServiceReference" type="xs:string"/>
+            <xs:element minOccurs="0" name="accountInstanceReference" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
